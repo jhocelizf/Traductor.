@@ -11,7 +11,7 @@ const Traductor = () => {
     useEffect(() => {
         // Función para obtener idiomas disponibles
         const fetchLanguages = async () => {
-            const url = process.env.REACT_APP_API_URL;
+            const url = import.meta.env.VITE_REACT_APP_API_URL;
             const options = {
                 method: 'GET',
                 headers: {
@@ -37,7 +37,7 @@ const Traductor = () => {
     }, []);
 
     const handleTranslateClick = async () => {
-        const url = process.env.REACT_APP_API_URL;;
+        const url = import.meta.env.VITE_REACT_APP_API_URL;
         const options = {
             method: 'POST',
             headers: {
