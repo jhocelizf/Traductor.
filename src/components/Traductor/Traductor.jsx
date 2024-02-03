@@ -11,12 +11,12 @@ const Traductor = () => {
     useEffect(() => {
         // Función para obtener idiomas disponibles
         const fetchLanguages = async () => {
-            const url = import.meta.env.VITE_REACT_APP_API_URL;
+            const url = import.meta.env.VITE_API_URL_GET;
             const options = {
                 method: 'GET',
                 headers: {
-                    'X-RapidAPI-Key': import.meta.env.VITE_REACT_APP_X_RAPIDAPI_KEY,
-                    'X-RapidAPI-Host': import.meta.env.VITE_REACT_APP_X_RAPIDAPI_HOTS,
+                    'X-RapidAPI-Key': import.meta.env.VITE_X_RAPIDAPI_KEY,
+                    'X-RapidAPI-Host': import.meta.env.VITE_X_RAPIDAPI_HOTS,
                 }
             };
 
@@ -37,13 +37,13 @@ const Traductor = () => {
     }, []);
 
     const handleTranslateClick = async () => {
-        const url = import.meta.env.VITE_REACT_APP_API_URL;
+        const url = import.meta.env.VITE_API_URL_POST;
         const options = {
             method: 'POST',
             headers: {
                 'content-type': 'application/x-www-form-urlencoded',
-                'X-RapidAPI-Key': import.meta.env.VITE_REACT_APP_X_RAPIDAPI_KEY,
-                'X-RapidAPI-Host': import.meta.env.VITE_REACT_APP_X_RAPIDAPI_HOTS,
+                'X-RapidAPI-Key': import.meta.env.VITE_X_RAPIDAPI_KEY,
+                'X-RapidAPI-Host': import.meta.env.VITE_X_RAPIDAPI_HOTS,
             },
             body: new URLSearchParams({
                 source_language: fromLanguage,
@@ -93,9 +93,11 @@ const Traductor = () => {
                     <textarea className='cuadrado' name='' id='inputTranslateFrom' cols='10' rows='10' value={text} onChange={(e) => setText(e.target.value)}></textarea>
                 </div>
 
+        
                 <div className='button'>
                 <button onClick={handleTranslateClick}>Traducir</button>
                 </div>
+                
 
                 <div className='container-cuadros'>
                     <label className='label-cuadros' htmlFor='outputTranslate'>Traducción:</label>
